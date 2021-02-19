@@ -45,20 +45,20 @@ fetch('http://localhost:5000/history')
 	})
 
 
-var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_15m");
+// var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_15m");
 
-binanceSocket.onmessage = function (event) {	
-	var message = JSON.parse(event.data);
+// binanceSocket.onmessage = function (event) {	
+// 	var message = JSON.parse(event.data);
 
-	var candlestick = message.k;
+// 	var candlestick = message.k;
 
-	console.log(candlestick)
+// 	console.log(candlestick)
 
-	candleSeries.update({
-		time: candlestick.t / 1000,
-		open: candlestick.o,
-		high: candlestick.h,
-		low: candlestick.l,
-		close: candlestick.c
-	})
-}
+// 	candleSeries.update({
+// 		time: candlestick.t / 1000,
+// 		open: candlestick.o,
+// 		high: candlestick.h,
+// 		low: candlestick.l,
+// 		close: candlestick.c
+// 	})
+// }
