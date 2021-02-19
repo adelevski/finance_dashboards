@@ -1,9 +1,10 @@
-from key import ameritrade
+from config import ameritrade
 import websocket, json
 from websocket import create_connection, WebSocket
 import requests, time, re
 import pandas as pd
 import streamlit as st
+import pprint
 
 st.title("QuickTick")
 
@@ -17,7 +18,7 @@ def on_open(ws):
     request = {
         "method": "SUBSCRIBE",
         "params": [
-            "btcusdt@aggTrade"
+            "btcusdt@trade"
         ],
         "id": 1
     }    
@@ -32,7 +33,7 @@ def print_message(message):
     data = json.loads(message)
     symbol = data['s']
     price = data['p']
-    placeholder.write(f'Currently seeing {symbol} going for {price}')
+    placeholder.write(data)
 
 def on_close(ws):
     st.write('closed connection')

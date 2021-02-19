@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>QuickTick</title>
+        <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    </head>
+
+    <body>
+        <h2>Trades</h2>
+
+        <div id="chart"></div>
+
+        <div id="trades"></div>
+
+        <h3>Settings</h3>
+        <div id="settings">
+            <input type="checkbox" /> 
+            RSI
+            <input type="text" name="rsi_length" id="rsi_length" placeholder="14"/>
+            Overbought
+            <input type="text" id="rsi_overbought" name="rsi_overbought" placeholder="70"/>
+            Oversold
+            <input type="text" id="rsi_oversold" name="rsi_oversold" placeholder="30"/>
+        </div>
+
+
+
+        <script>
+            // var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");
+            
+
+            var tradeDiv = document.getElementById("trades")
+            
+            // binanceSocket.onmessage = function(event) {
+            //     console.log(event.data);
+
+            //     var messageObject = JSON.parse(event.data)
+                
+            //     tradeDiv.append(messageObject.p)
+
+
+            // };
+            
+
+        </script>
+        <script src="chart.js"></script>
+
+    </body>
+
+
+</html>
