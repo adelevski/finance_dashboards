@@ -2,8 +2,10 @@ from flask import Flask, render_template, request, flash, redirect, jsonify
 from binance.client import Client
 from binance.enums import *
 import config, csv, datetime
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app)
 app.secret_key = config.flask_secret_key
 
 client = Client(config.API_KEY, config.API_SECRET, tld='us')
@@ -47,7 +49,7 @@ def settings():
 
 @app.route('/history')
 def history():
-    candlesticks = client.get_historical_klines("BTCUSDT", Client.KLINE_INTERVAL_15MINUTE, "7 Feb, 2021", "19 Feb, 2021")
+    candlesticks = client.get_historical_klines("BTCUSDT", Client.KLINE_INTERVAL_1MINUTE, "1 day ago UTC")
 
     processed_candlesticks = []
 

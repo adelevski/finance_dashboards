@@ -39,26 +39,25 @@ var candleSeries = chart.addCandlestickSeries({
 fetch('http://localhost:5000/history')
 	.then((r) => r.json())
 	.then((response) => {
-		console.log(response)
+		console.log(response);
 
 		candleSeries.setData(response);
 	})
 
 
-// var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_15m");
+var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1m");
 
-// binanceSocket.onmessage = function (event) {	
-// 	var message = JSON.parse(event.data);
+binanceSocket.onmessage = function (event) {	
+		
+	var message = JSON.parse(event.data);
 
-// 	var candlestick = message.k;
+	var candlestick = message.k;
 
-// 	console.log(candlestick)
-
-// 	candleSeries.update({
-// 		time: candlestick.t / 1000,
-// 		open: candlestick.o,
-// 		high: candlestick.h,
-// 		low: candlestick.l,
-// 		close: candlestick.c
-// 	})
-// }
+	candleSeries.update({
+		time: candlestick.t / 1000,
+		open: candlestick.o,
+		high: candlestick.h,
+		low: candlestick.l,
+		close: candlestick.c
+	})
+}

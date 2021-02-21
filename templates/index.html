@@ -12,7 +12,7 @@
         <div id="trades"></div>
 
         <div style="border: solid gray 1px; padding: 20px; width: 600px; margin-top: 20px; ">
-            <h3>Buy Crypto!</h3>
+            <h3>Want some?</h3>
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                     <div style="padding: 10px; margin-bottom: 10px; background: pink; border: solid red 1px; color: red;">
@@ -35,26 +35,6 @@
             </form>
         </div>
 
-
-
-        <div id="my_balances">
-            <h2>Balances</h2>
-            <table>
-                {% for balance in my_balances %}
-                <tr>
-                    {% if balance['free'] | float > 0 %}
-                        <td>
-                            {{ balance['asset'] }}
-                        </td>
-                        <td>
-                            {{ balance['free'] }}
-                        </td>
-                        {% endif %}
-                </tr>
-                {% endfor %}
-            </table>                 
-        </div>
-
         <h3>Settings</h3>
         <div id="settings">
             <input type="checkbox" /> 
@@ -67,6 +47,24 @@
         </div>
 
 
+
+        <div id="my_balances">
+            <h2>Balances</h2>
+            <table>
+                {% for balance in my_balances %}
+                    {% if balance['free'] | float > 0 %}
+                        <tr>
+                            <td>
+                                {{ balance['asset'] }}
+                            </td>
+                            <td>
+                                {{ balance['free'] }}
+                            </td>
+                         </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>                 
+        </div>
 
         <script>
             
