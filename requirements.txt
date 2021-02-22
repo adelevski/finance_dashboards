@@ -3,4 +3,8 @@ TA-Lib
 numpy
 backtrader
 flask
+pandas
+yfinance
+streamlit
+
 
