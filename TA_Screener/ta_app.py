@@ -1,8 +1,14 @@
-from flask import Flask
-
+from flask import Flask, render_template
+from patterns import patterns
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    return render_template('ta_index.html', patterns=patterns)
+
+@app.route('/snapshot')
+def snapshot():
+    return {
+        'code': "sucess"
+    }
