@@ -27,9 +27,9 @@ def is_breaking_out(df, percentage=2.5):
 
 
 
-datafiles = os.listdir('TA_Screener/data/daily')
+datafiles = os.listdir('datasets/daily')
 for filename in datafiles:
-    df = pd.read_csv(f'TA_Screener/data/daily/{filename}')
+    df = pd.read_csv(f'datasets/daily/{filename}')
 
     if is_consolidating(df, percentage=2.5):
         print(f"{filename} is consolidating.")
