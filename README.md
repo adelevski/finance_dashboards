@@ -10,4 +10,6 @@ Quick financial dashboards using Streamlit library
 ### 3) TA Screener
 Webapp for TA on variety of stocks
 
+### 4) TTM Squeeze Scanner
+Using a TTM Squeeze indicator (BB's, KB's, ATR, momentum indicator / histogram) in Python
 
