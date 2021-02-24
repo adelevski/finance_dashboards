@@ -12,16 +12,16 @@ def index():
     pattern = request.args.get('pattern', None)
     stocks = {}
 
-    with open('TA_Screener/datasets/companies.csv') as f:
+    with open('datasets/companies.csv') as f:
         for row in csv.reader(f):
             stocks[row[0]] = {'company': row[1]}
 
 
 
     if pattern:
-        datafiles = os.listdir('TA_Screener/datasets/daily')
+        datafiles = os.listdir('TA_Screener/data/daily')
         for filename in datafiles:
-            df = pd.read_csv(f'TA_Screener/datasets/daily/{filename}')
+            df = pd.read_csv(f'TA_Screener/data/daily/{filename}')
             pattern_function = getattr(talib, pattern)
             symbol = filename.split('.')[0]
             try:
@@ -44,7 +44,7 @@ def snapshot():
     #     for company in companies:
     #         symbol = company.split(',')[0]
     #         df = yf.download(symbol, start="2020-06-22", end="2021-02-22")
-    #         df.to_csv(f'TA_Screener\datasets\daily\{symbol}.csv')
+    #         df.to_csv(f'TA_Screener\datas\daily\{symbol}.csv')
 
     return {
         'code': "success"
