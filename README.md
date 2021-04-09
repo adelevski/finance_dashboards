@@ -5,7 +5,7 @@
 Webapp connected to binance api to showcase realtime candlestick BTC chart with websockets and TradingView's lightweight charts
 
 ### 2) Streamlit 
-Quick financial dashboards using Streamlit library
+Quick financial dashboard using Streamlit library
 
 ### 3) TA Screener
 Webapp for TA on variety of stocks
